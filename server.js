@@ -17,14 +17,24 @@ const port = 4000;
 // If the port is not available use 4000.
 connectDB();
 
-const allowedOrigins = ["http://localhost:5173"];
+// const allowedOrigins = [
+//   "http://localhost:5173",
+//   "https://aymanzuleyhi.github.io",
+// ];
 
 app.use(
   cors({
-    origin: allowedOrigins,
+    origin: "https://aymanzuleyhi.github.io",
     credentials: true,
   })
 );
+
+app.use((req, res, next) => {
+  console.log("Request from origin:", req.headers.origin);
+  next();
+});
+
+console.log("Hey, there.");
 
 // Make the app use: json, cookies, and cors.
 app.use(express.json());
