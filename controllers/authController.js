@@ -129,8 +129,10 @@ const login = async (req, res) => {
       console.log(process.env.NODE_ENV);
       res.cookie("token", token, {
         httpOnly: true,
-        secure: process.env.NODE_ENV === "production",
-        sameSite: process.env.NODE_ENV === "production" ? "none" : "strict",
+        secure: true,
+        sameSite: "none",
+        // secure: process.env.NODE_ENV === "production",
+        // sameSite: process.env.NODE_ENV === "production" ? "none" : "strict",
         path: "/",
         maxAge: 7 * 24 * 60 * 60 * 1000,
       });
