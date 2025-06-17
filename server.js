@@ -17,12 +17,11 @@ const port = 4000;
 // If the port is not available use 4000.
 connectDB();
 
+// Configure CORS with credentials and specific origin
 app.use(
   cors({
-    origin: "https://aymanzuleyhi.github.io", // <--- Change this back to your specific frontend URL
+    origin: "https://aymanzuleyhi.github.io", // Replace with your frontend's origin
     credentials: true,
-    methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
-    allowedHeaders: ["Content-Type", "Authorization"],
   })
 );
 
