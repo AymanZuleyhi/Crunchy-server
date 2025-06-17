@@ -126,6 +126,7 @@ const login = async (req, res) => {
       );
 
       // Send the token in a HTTP cookie.
+      console.log(NODE_ENV);
       res.cookie("token", token, {
         httpOnly: true,
         secure: process.env.NODE_ENV === "production",
