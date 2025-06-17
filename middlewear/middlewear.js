@@ -5,6 +5,7 @@ import { filterUserData } from "../helpers/helpers.js";
 
 const userAuth = async (req, res, next) => {
   const { token } = req.cookies;
+  console.log("This is the token", token);
 
   if (!token) {
     return res.send({ success: false, message: "The token does not exist." });
