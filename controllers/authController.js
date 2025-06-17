@@ -126,7 +126,6 @@ const login = async (req, res) => {
       );
 
       // Send the token in a HTTP cookie.
-      console.log(process.env.NODE_ENV);
       res.cookie("token", token, {
         httpOnly: true,
         secure: true,

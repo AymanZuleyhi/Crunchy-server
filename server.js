@@ -17,21 +17,12 @@ const port = 4000;
 // If the port is not available use 4000.
 connectDB();
 
-const allowedOrigins = [
-  "http://localhost:5173",
-  "https://aymanzuleyhi.github.io",
-];
-
 app.use(
   cors({
-    origin: function (origin, callback) {
-      if (!origin || allowedOrigins.includes(origin)) {
-        callback(null, true);
-      } else {
-        callback(new Error("Not allowed by CORS"));
-      }
-    },
+    origin: "*", // <--- TEMPORARY: This allows requests from any origin.
     credentials: true,
+    methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
+    allowedHeaders: ["Content-Type", "Authorization"],
   })
 );
 
