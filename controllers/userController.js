@@ -3,7 +3,6 @@ import UserModel from "../models/userModel.js";
 const getUserData = async (req, res) => {
   const { user } = req.body;
 
-  console.log("Hi", user);
   try {
     const {
       name,

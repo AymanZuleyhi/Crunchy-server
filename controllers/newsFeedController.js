@@ -140,7 +140,6 @@ const createNewPost = async (req, res) => {
       message: "Your post was published succesfully!",
     });
   } catch (error) {
-    console.log(error.message);
     res.json({
       success: false,
       message: "There was an issue while trying to add a new post.",
@@ -183,7 +182,6 @@ const likePost = async (req, res) => {
       message: "Post has been updated.",
     });
   } catch (error) {
-    console.error(error.message);
     res.json({
       success: false,
       message: "There was an issue while trying to like the post.",
@@ -283,7 +281,7 @@ const hideShowPost = async (req, res) => {
     } else {
       user.posts.hidden.unshift(postId);
     }
-    console.log(user.posts.hidden);
+
     await user.save();
 
     return res.json({
