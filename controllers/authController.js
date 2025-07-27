@@ -231,8 +231,6 @@ const sendOtp = async (req, res) => {
   const { flowType } = req.params;
   const { email } = req.body;
 
-  console.log("These are the flow type, and email", flowType, email);
-
   if (!flowType || !email) {
     return res.json({
       success: false,

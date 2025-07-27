@@ -20,7 +20,11 @@ connectDB();
 // Configure CORS with credentials and specific origin
 app.use(
   cors({
-    origin: "https://aymanzuleyhi.github.io", // Replace with your frontend's origin
+    origin: [
+      "https://aymanzuleyhi.github.io",
+      "http://localhost:5173",
+      "https://crunchy-two.vercel.app/",
+    ],
     credentials: true,
   })
 );

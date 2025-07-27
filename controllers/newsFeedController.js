@@ -91,6 +91,7 @@ const getPostsById = async (req, res) => {
         success: false,
         message:
           "There's been an issue while trying to get the posts by their ids.",
+        posts: [],
       });
     }
 
