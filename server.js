@@ -23,7 +23,7 @@ app.use(
     origin: [
       "https://aymanzuleyhi.github.io",
       "http://localhost:5173",
-      "https://crunchy-two.vercel.app/",
+      "https://crunchy-two.vercel.app",
     ],
     credentials: true,
   })
