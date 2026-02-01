@@ -12,9 +12,8 @@ import newsFeedRouter from "./routes/newsFeedRouter.js";
 
 // Create the app
 const app = express();
-const port = 4000;
-// process.env.PORT || 4000;
-// If the port is not available use 4000.
+const port = process.env.PORT || 4000; // If the port is not available use 4000.
+
 connectDB();
 
 // Configure CORS with credentials and specific origin
@@ -26,7 +25,7 @@ app.use(
       "https://crunchy-two.vercel.app",
     ],
     credentials: true,
-  })
+  }),
 );
 
 // Make the app use: json, cookies, and cors.

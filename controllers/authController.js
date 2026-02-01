@@ -63,7 +63,7 @@ const register = async (req, res) => {
     const token = jwt.sign(
       { userId: user._id.toString() },
       process.env.ACCESS_TOKEN_SECRET,
-      { expiresIn: "7d" }
+      { expiresIn: "7d" },
     );
 
     // Send the token in a HTTP cookie.
@@ -122,7 +122,7 @@ const login = async (req, res) => {
       const token = jwt.sign(
         { userId: user._id.toString() },
         process.env.ACCESS_TOKEN_SECRET,
-        { expiresIn: "7d" }
+        { expiresIn: "7d" },
       );
 
       // Send the token in a HTTP cookie.
@@ -858,12 +858,12 @@ const checkSecurityQuestions = async (req, res) => {
       const encryptedAnswer = question.answer;
 
       const questionFromTheFrontEnd = securityQuestions.find(
-        (eachQuestion) => eachQuestion.question === question.question
+        (eachQuestion) => eachQuestion.question === question.question,
       );
 
       const isMatch = await bcrypt.compare(
         questionFromTheFrontEnd.answer,
-        encryptedAnswer
+        encryptedAnswer,
       );
 
       checkVailidty.push(isMatch);
