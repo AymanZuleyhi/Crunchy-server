@@ -1,4 +1,5 @@
 import nodemailer from "nodemailer";
+import axios from "axios";
 
 const transporter = nodemailer.createTransport({
   host: "smtp-relay.sendinblue.com",
@@ -16,13 +17,32 @@ const transporter = nodemailer.createTransport({
   },
 });
 
-const sendEmail = async ({ from, to, subject, text }) => {
-  await transporter.sendMail({
-    from,
-    to,
-    subject,
-    text,
-  });
+const sendEmail = async ({ to, subject, text }) => {
+  try {
+    const response = await axios.post(
+      "https://api.brevo.com/v3/smtp/email",
+      {
+        sender: { email: process.env.SENDER_EMAIL, name: "Your App Name" },
+        to: [{ email: to }],
+        subject: subject,
+        textContent: text,
+      },
+      {
+        headers: {
+          "api-key": process.env.SMTP_PASSWORD, // Your Brevo Master Password is your API Key
+          "Content-Type": "application/json",
+        },
+      },
+    );
+    console.log("Email sent via API successfully");
+    return response.data;
+  } catch (error) {
+    console.error(
+      "API Email Error:",
+      error.response ? error.response.data : error.message,
+    );
+    throw error;
+  }
 };
 
 export { transporter, sendEmail };

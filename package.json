@@ -12,6 +12,8 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@getbrevo/brevo": "^2.3.0",
+    "axios": "^1.13.4",
     "bcryptjs": "^3.0.2",
     "cookie-parser": "^1.4.7",
     "cors": "^2.8.5",
@@ -19,7 +21,7 @@
     "express": "^4.21.2",
     "jsonwebtoken": "^9.0.2",
     "mongoose": "^8.10.2",
-    "nodemailer": "^6.10.0",
+    "nodemailer": "^7.0.13",
     "nodemon": "^3.1.9"
   }
 }
