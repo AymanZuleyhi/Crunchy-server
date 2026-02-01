@@ -1,16 +1,18 @@
 import nodemailer from "nodemailer";
 
 const transporter = nodemailer.createTransport({
-  host: "smtp-relay.brevo.com",
+  host: "smtp-relay.sendinblue.com",
   port: 465,
   secure: true,
+  connectionTimeout: 20000,
+  greetingTimeout: 20000,
+  socketTimeout: 20000,
   auth: {
     user: process.env.SMTP_USER,
     pass: process.env.SMTP_PASSWORD,
   },
   tls: {
     rejectUnauthorized: false,
-    ciphers: "SSLv3",
   },
 });
 
